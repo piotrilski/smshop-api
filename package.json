@@ -1,0 +1,17 @@
+{
+  "name": "smshop-backend",
+  "version": "0.0.1",
+  "description": "mocked backend ",
+  "main": "app.js",
+  "scripts": {
+    "dev": "set ENV_PORT=1986 && node --debug ./src/app.js"
+  },
+  "author": "Piotr Ilski",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {
+    "lodash": "^4.15.0"
+  }
+}
