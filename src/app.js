@@ -51,6 +51,29 @@
         res.json(productsJson);
     });
 
+     app.get('/products/:productId', (req, res) => {
+        let prodId = req.params ? req.params.productId : undefined 
+        let product = _.find(productsJson, prod => prod.id === prodId);
+        console.log(product);
+        if(product) {
+            res.json(product);
+        } else {
+            res.status(404).send('Not found');
+        }
+    });
+
+    app.get('/products/searchbyname/:name', (req, res) => {
+        let prodname = req.params ? req.params.name.toLowerCase() : undefined 
+        let products = _.filter(productsJson, 
+            prod =>  prod.name ? prod.name.toLowerCase().search(prodname) > -1 : false);
+        
+        if(products) {
+            res.json(products);
+        } else {
+            res.status(404).send('Not found');
+        }
+    });
+
     app.get('/categories', (req, res) => {
         res.json(categoriesJson);
     });
